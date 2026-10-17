@@ -8,6 +8,7 @@ interface SkillItem {
   name: string;
   category: "production" | "vision";
   description: string;
+  link?: string;
 }
 
 const leftSkills: SkillItem[] = [
@@ -15,21 +16,25 @@ const leftSkills: SkillItem[] = [
     name: "Video Editor",
     category: "production",
     description: "Cinematic pacing, sound design, rhythm cutting, and narrative flow across high-budget commercials and brand films.",
+    link: "https://drive.google.com/drive/folders/1L8vAu8SIZ5Yy4Lz63AmrX5aqT0Jslc7b?usp=sharing",
   },
   {
     name: "Videographer",
     category: "production",
     description: "Professional camera operation, studio lighting, dynamic camera movements, and evocative visual composition.",
+    link: "https://drive.google.com/drive/folders/11FQNpotVQ7O6RhvP6OSb-Ko6FDd32Vfy?usp=sharing",
   },
   {
-    name: "Graphics Disigner",
+    name: "Graphics Designer",
     category: "production",
     description: "Striking visual identities, typography systems, marketing collateral, and high-conversion e-commerce assets.",
+    link: "https://drive.google.com/drive/folders/1KtxUNfHb3ExvlmbVTvH8lHr7gqyyM5NO?usp=sharing",
   },
   {
     name: "Motion Graphics",
     category: "production",
     description: "2D & 3D title sequences, kinetic typography, brand animations, and VFX compositing for digital campaigns.",
+    link: "https://drive.google.com/drive/folders/1L8vAu8SIZ5Yy4Lz63AmrX5aqT0Jslc7b?usp=sharing",
   },
 ];
 
@@ -74,9 +79,9 @@ export function SkillsSection() {
         alignItems: "center",
         justifyContent: "center",
         backgroundImage: `
-          linear-gradient(to top, #05070a 0%, transparent 20%),
-          linear-gradient(to bottom, #05070a 0%, transparent 20%),
-          radial-gradient(ellipse at center, rgba(5, 7, 10, 0.2) 0%, rgba(5, 7, 10, 0.75) 60%, #05070a 100%),
+          linear-gradient(to top, #05070a 0%, transparent 12%),
+          linear-gradient(to bottom, #05070a 0%, transparent 12%),
+          radial-gradient(ellipse at 50% 45%, transparent 0%, transparent 42%, rgba(5, 7, 10, 0.35) 70%, rgba(5, 7, 10, 0.88) 100%),
           url('/3rd.jpg.jpeg')
         `,
         backgroundSize: "cover",
@@ -111,30 +116,25 @@ export function SkillsSection() {
               className="skills-col"
             >
               {leftSkills.map((skill, i) => (
-                <motion.button
+                <motion.a
                   key={skill.name}
+                  href={skill.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: -24 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.55, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() =>
-                    setActiveSkill(activeSkill?.name === skill.name ? null : skill)
-                  }
                   className="skill-pill"
+                  title={`Open ${skill.name} portfolio on Google Drive`}
                   style={{
                     width: "100%",
                     padding: "18px 24px",
                     borderRadius: "8px",
-                    border:
-                      activeSkill?.name === skill.name
-                        ? "1px solid var(--accent-teal)"
-                        : "1px solid rgba(255, 255, 255, 0.22)",
-                    backgroundColor:
-                      activeSkill?.name === skill.name
-                        ? "rgba(20, 184, 166, 0.16)"
-                        : "rgba(10, 14, 22, 0.65)",
+                    border: "1px solid rgba(255, 255, 255, 0.22)",
+                    backgroundColor: "rgba(10, 14, 22, 0.65)",
                     backdropFilter: "blur(12px)",
                     color: "#ffffff",
                     fontSize: "1.05rem",
@@ -142,15 +142,32 @@ export function SkillsSection() {
                     textAlign: "center",
                     letterSpacing: "0.02em",
                     cursor: "pointer",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "9px",
                     transition: "border 0.25s ease, background 0.25s ease, box-shadow 0.25s ease",
-                    boxShadow:
-                      activeSkill?.name === skill.name
-                        ? "0 0 24px rgba(20, 184, 166, 0.3)"
-                        : "0 4px 15px rgba(0, 0, 0, 0.35)",
+                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.35)",
                   }}
                 >
-                  {skill.name}
-                </motion.button>
+                  <span>{skill.name}</span>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ opacity: 0.65, flexShrink: 0 }}
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </motion.a>
               ))}
             </div>
 
@@ -255,6 +272,32 @@ export function SkillsSection() {
               >
                 {activeSkill.description}
               </p>
+              {activeSkill.link && (
+                <div style={{ marginTop: "18px" }}>
+                  <a
+                    href={activeSkill.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "8px 20px",
+                      borderRadius: "6px",
+                      backgroundColor: "rgba(20, 184, 166, 0.2)",
+                      border: "1px solid var(--accent-teal)",
+                      color: "#ffffff",
+                      fontSize: "0.9rem",
+                      fontWeight: 600,
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    <span>View Portfolio on Google Drive</span>
+                    <span>↗</span>
+                  </a>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -286,21 +329,53 @@ export function SkillsSection() {
 
           {/* Right Side: Clean Column of 8 Skills Pills */}
           <div className="skills-mobile-skills-col">
-            {allSkills.map((skill, i) => (
-              <motion.button
-                key={skill.name}
-                initial={{ opacity: 0, x: 16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
-                onClick={() =>
-                  setActiveSkill(activeSkill?.name === skill.name ? null : skill)
-                }
-                className={`skills-mobile-pill ${activeSkill?.name === skill.name ? "active" : ""}`}
-              >
-                {skill.name}
-              </motion.button>
-            ))}
+            {allSkills.map((skill, i) =>
+              skill.link ? (
+                <motion.a
+                  key={skill.name}
+                  href={skill.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  className="skills-mobile-pill skills-mobile-link-pill"
+                  title={`Open ${skill.name} portfolio on Google Drive`}
+                >
+                  <span>{skill.name}</span>
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ opacity: 0.75, flexShrink: 0 }}
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </motion.a>
+              ) : (
+                <motion.button
+                  key={skill.name}
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  onClick={() =>
+                    setActiveSkill(activeSkill?.name === skill.name ? null : skill)
+                  }
+                  className={`skills-mobile-pill ${activeSkill?.name === skill.name ? "active" : ""}`}
+                >
+                  {skill.name}
+                </motion.button>
+              )
+            )}
           </div>
         </div>
 
@@ -309,6 +384,30 @@ export function SkillsSection() {
           <div className="skills-mobile-active-drawer">
             <h5>{activeSkill.name}</h5>
             <p>{activeSkill.description}</p>
+            {activeSkill.link && (
+              <a
+                href={activeSkill.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  marginTop: "10px",
+                  padding: "6px 14px",
+                  borderRadius: "6px",
+                  backgroundColor: "rgba(20, 184, 166, 0.2)",
+                  border: "1px solid var(--accent-teal)",
+                  color: "#ffffff",
+                  fontSize: "0.8rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+                <span>View on Google Drive</span>
+                <span>↗</span>
+              </a>
+            )}
           </div>
         )}
       </div>
@@ -372,9 +471,9 @@ export function SkillsSection() {
             inset: 0;
             pointer-events: none;
             background: 
-              linear-gradient(to left, #05070a 0%, transparent 22%),
-              linear-gradient(to top, #05070a 0%, transparent 20%),
-              linear-gradient(to bottom, #05070a 0%, transparent 15%);
+              linear-gradient(to left, #05070a 0%, transparent 16%),
+              linear-gradient(to top, #05070a 0%, transparent 12%),
+              linear-gradient(to bottom, #05070a 0%, transparent 10%);
           }
 
           /* Right Skills Column */
@@ -397,6 +496,12 @@ export function SkillsSection() {
             text-align: center;
             letter-spacing: 0.02em;
             cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-sizing: border-box;
             transition: all 0.2s ease;
           }
           .skills-mobile-pill:active,

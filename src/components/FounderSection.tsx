@@ -107,7 +107,7 @@ export function FounderSection() {
               }}
             >
               Founder <span style={{ color: "var(--accent-teal)", fontWeight: 300 }}>|</span> Strategist{" "}
-              <span style={{ color: "var(--accent-teal)", fontWeight: 300 }}>|</span> Creative Director
+              <span style={{ color: "var(--accent-teal)", fontWeight: 300 }}>|</span> Director
             </motion.h2>
 
             <motion.p
@@ -175,7 +175,7 @@ export function FounderSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="founder-mobile-title"
             >
-              Founder <span style={{ color: "var(--accent-teal)" }}>|</span> Strategist
+              Founder <span style={{ color: "var(--accent-teal)" }}>|</span> Director
             </motion.h2>
 
             <motion.p

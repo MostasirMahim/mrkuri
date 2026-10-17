@@ -52,11 +52,14 @@ export function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        backgroundColor: scrolled ? "rgba(5, 7, 10, 0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
+        backgroundColor: scrolled ? "rgba(8, 12, 18, 0.42)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid transparent",
-        boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.45)" : "none",
-        transition: "all 0.3s ease",
+        boxShadow: scrolled
+          ? "0 10px 30px -5px rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(255, 255, 255, 0.05)"
+          : "none",
+        transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       <div
