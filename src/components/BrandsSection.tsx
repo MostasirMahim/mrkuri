@@ -51,9 +51,9 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
           viewport={{ once: true, amount: 0.15 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "minmax(180px, 0.65fr) minmax(0, 1.35fr)",
             alignItems: "center",
-            gap: "70px",
+            gap: "54px",
             padding: "80px 0",
             borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
           }}
@@ -76,8 +76,8 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
               style={{
                 position: "relative",
                 width: "100%",
-                maxWidth: "360px",
-                height: "90px",
+                maxWidth: "230px",
+                height: "64px",
               }}
               className="nolok-logo-wrapper"
             >
@@ -85,7 +85,7 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
                 src="/nolok-brand.png"
                 alt="Nolok Jewelry Brand"
                 fill
-                sizes="(max-width: 768px) 100vw, 360px"
+                sizes="(max-width: 768px) 100vw, 230px"
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -97,7 +97,7 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.65, delay: 0.2 }}
-            style={{ maxWidth: "560px" }}
+            style={{ maxWidth: "780px", width: "100%" }}
             className="brand-text-content"
           >
             <p
@@ -155,15 +155,15 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
             viewport={{ once: true, amount: 0.2 }}
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
+              gridTemplateColumns: "minmax(0, 1.35fr) minmax(180px, 0.65fr)",
               alignItems: "center",
-              gap: "70px",
+              gap: "54px",
               padding: "90px 0",
               borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
             }}
           >
             {/* Left: Description & CTA */}
-            <div style={{ maxWidth: "560px" }}>
+            <div style={{ maxWidth: "780px", width: "100%" }}>
               <p
                 style={{
                   fontSize: "clamp(0.98rem, 1.25vw, 1.08rem)",
@@ -231,15 +231,15 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
                 style={{
                   position: "relative",
                   width: "100%",
-                  maxWidth: "340px",
-                  height: "90px",
+                  maxWidth: "230px",
+                  height: "64px",
                 }}
               >
                 <Image
                   src="/prochari-brand.png"
                   alt="Prochari Digital Agency"
                   fill
-                  sizes="(max-width: 768px) 100vw, 340px"
+                  sizes="(max-width: 768px) 100vw, 230px"
                   style={{ objectFit: "contain" }}
                 />
               </div>
@@ -256,9 +256,9 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
           viewport={{ once: true, amount: 0.15 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "minmax(180px, 0.65fr) minmax(0, 1.35fr)",
             alignItems: "center",
-            gap: "70px",
+            gap: "54px",
             padding: "90px 0 40px 0",
           }}
         >
@@ -280,8 +280,8 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
               style={{
                 position: "relative",
                 width: "100%",
-                maxWidth: "240px",
-                height: "170px",
+                maxWidth: "160px",
+                height: "115px",
               }}
               className="signature-logo-wrapper"
             >
@@ -289,7 +289,7 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
                 src="/signature-brand.png"
                 alt="Signature Man Logo"
                 fill
-                sizes="(max-width: 768px) 100vw, 240px"
+                sizes="(max-width: 768px) 100vw, 160px"
                 style={{ objectFit: "contain" }}
               />
             </div>
@@ -301,7 +301,7 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.65, delay: 0.2 }}
-            style={{ maxWidth: "560px" }}
+            style={{ maxWidth: "780px", width: "100%" }}
             className="brand-text-content"
           >
             <h3
@@ -412,12 +412,12 @@ export function BrandsSection({ onSelectBrand }: BrandsSectionProps = {}) {
             line-height: 1.75 !important;
           }
           .nolok-logo-wrapper {
-            max-width: 240px !important;
-            height: 64px !important;
+            max-width: 190px !important;
+            height: 52px !important;
           }
           .signature-logo-wrapper {
-            max-width: 170px !important;
-            height: 120px !important;
+            max-width: 135px !important;
+            height: 96px !important;
           }
           .btn-brand {
             padding: 13px 32px !important;
